@@ -1,0 +1,96 @@
+<html>
+<head>
+	 </script><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Bus reservation</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+<link rel="stylesheet" href="style.css"> <script src="angular/angular.min.js"></script>
+</head>
+<style>
+.d1{
+	height: 100px;
+}
+.b{
+	background-color: 82c4c3;
+	text-align: center;
+}
+</style>
+<script> var myModule = angular.module("myApp",[])  </script>
+<body class="b" ng-app="myApp">
+
+    <div class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        Bus
+      </div>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html" >Home</a>
+      <a href="insert.html" >Insert</a>
+      <a href="cancel.html" >Cancel</a>
+    </div>
+  </div>
+
+    <form ng-controller='appController' ng-submit="send()">
+      <!--send() function from the controller is called on form submission -->
+<!--
+		Employee ID: <br />
+            <input type="text" id="empid" ng-model="data.empid" /> <br />
+        <label for="empname">Employee Name</label><br />
+                <input type="text" id="empname" ng-model="data.empname" /> <br /> <br />
+							--><div class="d1">
+
+							</div>
+						<h1>Enter the Passenger Details</h1>
+						<hr /><br />
+						<input type="text" name="pid" placeholder="Create and id" ng-model="data.pid" required /><br /><br />
+						<input type="text" name="name" placeholder="Enter your Name" ng-model="data.name" required /><br /><br />
+						<input type="number" name="age" min="0" placeholder="Enter your age" ng-model="data.age" required  /><br /><br />
+						<input type="email" name="email" required placeholder="Enter your email id" ng-model="data.email" required/><br /><br />
+						<input type="number" name="phno" required placeholder="Enter your phone number" ng-model="data.phno" required/><br /><br />
+
+        <input type="submit" class="subButton" ng-click="Submit">
+
+       <div><pre>{{response.data}}</pre>  </div>
+    </form>
+
+<a href="index.html">Back</a>
+     <script>
+	 myModule.controller ("appController",
+        function appController($scope, $http) {
+            /*$http directive is used to communicate to the server */
+            $scope.data = {}
+            $scope.response = {}
+
+            $scope.send = function () {
+                /*executed when submit is clicked*/
+				console.log($scope.data.empname);
+                var posting = $http({
+			/*posting to /process_get  */
+                    //method: 'GET',
+                    //url: '/process_get',
+                    //params: $scope.data,
+			/*posting to /process_post*/
+                    method: 'POST',
+                    url: '/process_post',
+                    data: $scope.data,
+
+                }).then (function (response) {
+                    /*executed when server responds back*/
+                    console.log(response);
+                    $scope.response.data = response.data;
+                },function (error){
+					console.log(error);
+			});
+            }
+        });
+    </script>
+</body>
+</html>

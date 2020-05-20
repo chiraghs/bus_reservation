@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <script src="angular/angular.min.js"> </script><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Bus reservation</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+<link rel="stylesheet" href="style.css"> </head>
+<style>
+.a1{
+background-color:82c4c3;
+}
+hr{
+    border-style: none;
+    width: 20px;
+    border-top-style: dotted;
+    border-color: grey;
+    border-width: 5px
+  }
+  a{
+  text-decoration :none;
+  }
+</style>
+<script src="angular/angular.min.js"> </script>
+<body  class="a1" align="center" ng-app>
+
+
+  <div class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        Bus
+      </div>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html" >Home</a>
+      <a href="insert.html" >Insert</a>
+      <a href="cancel.html" >Cancel</a>
+    </div>
+  </div>
+<div>
+<h1> Bus Reservation </h1>
+<br />
+  <div>
+<!--<a href="/home">Welcome</a>
+<a href="/about">About</a>
+<a href="insert.html">Insert</a>
+<a href="update.html">Update</a>
+<a href="search.html">Search</a>
+<a href="delete.html">Delete</a>
+<a href="/display">Display</a> -->
+<div>
+<form action="/search">
+<div class="row offset-lg-2 offset-2">
+<input type="text" name="from" width="100px" placeholder="From" required >
+<input type="text" name="to" width="100px" placeholder="To" required>
+<input type="date" name="date"  placeholder="onwardDate" required>
+<input type="date" name="date"  placeholder="returnDate" required>
+</div>
+<div class="row offset-lg-2 offset-2">
+  <input type="submit" class="subButton" value="Search Buses" placeholder="Search Buses">
+</div>
+<br><br></div>
+<a href="cancel.html" class="cancelButton">Click here to Cancel Ticket</a>
+</form>
+</body>
+</html>
